@@ -1,16 +1,16 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
-import { Navbar, Exchanges, Homepage, Cryptocurrencies, CryptoDetails, News } from './components'
-import './App.css'
+import { Navbar, Exchanges, Homepage, Cryptocurrencies, CryptoDetails, News } from './components';
+import './App.css';
 
 const App = () => {
   return (
-    <div classname="app">
-      <div classname="navbar">
+    <div className="app">
+      <div className="navbar">
         <Navbar />
       </div>
-      <div classname="main">
+      <div className="main">
         <Layout>
           <div className="routes">
             <Routes>
@@ -22,7 +22,7 @@ const App = () => {
             </Routes>
           </div>
         </Layout>
-      <div classname="footer">
+      <div className="footer">
         <Typography.Title level={5} style={{ color: 'white', textAlign: 'center' }}>
           Cryptoverse <br />
           All rights reserved
