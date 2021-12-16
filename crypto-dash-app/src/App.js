@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
 import { Navbar, Exchanges, Homepage, News, CoinDetails } from './components';
+import { MyDashboardContextProvider } from './components/MyDashboard';
 import './App.css';
 
 const App = () => {
@@ -13,12 +14,14 @@ const App = () => {
       <div className="main">
         <Layout>
           <div className="routes">
-            <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/exchanges" element={<Exchanges />} />
-              <Route path="/crypto/:coinId" element={<CoinDetails />} />
-              <Route path="/news" element={<News />} />
-            </Routes>
+            <MyDashboardContextProvider>
+              <Routes>
+                <Route path="/" element={<Homepage />} />
+                <Route path="/exchanges" element={<Exchanges />} />
+                <Route path="/crypto/:coinId" element={<CoinDetails />} />
+                <Route path="/news" element={<News />} />
+              </Routes>
+            </MyDashboardContextProvider>
           </div>
         </Layout>
       <div className="footer">

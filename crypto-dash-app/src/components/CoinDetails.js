@@ -5,11 +5,10 @@ import { useGetCoinDetailsQuery} from '../services/coinGeckoApi';
 import { Chart } from 'chart.js';
 
 const CoinDetails= () => {
-    // const chartRef = useRef();
-    // const {coinId} = useParams();
-    // const [timePeriod, setTimeperiod] = useState('30');
-    // const { data, isLoading } = useGetCoinDetailsQuery(coinId, timePeriod);
-    // const cryptoDetails = data?.data?.coin;
+    const {data: coinData, isFetching} = useGetCoinDetailsQuery( 'bitcoin', 1);
+
+    if(isFetching) return 'Loading...';
+    console.log(coinData);
 
     const renderData = () => {
         // if (isLoading) {

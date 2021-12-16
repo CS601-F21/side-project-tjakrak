@@ -10,6 +10,8 @@ import { useGetCryptosQuery } from '../services/coinGeckoApi';
 const Exchanges = () => {
     const { data: cryptoList, isFetching } = useGetCryptosQuery();
 
+    console.log(cryptoList);
+
     if(isFetching) return 'Loading...';
 
     return (

@@ -11,14 +11,14 @@ const News = () => {
     return (
     <div className="news-card-container">
         {newsList.articles.map((article) => (
-                
-            <tr key={article.id} className="news-wrapper">
-                <a href={article.url}>
-                <td className="tr-wrapper"><strong>{article.title}</strong></td>
-                </a>
-                <td className="tr-wrapper">{article.description}</td>
-            </tr>
-
+            <table className="table-wrapper">
+                <tbody>
+                    <tr key={article.id} className="tr-wrapper">
+                        <th className="th-wrapper"><a href={article.url}><strong>{article.title}</strong></a></th>
+                        <td className="td-wrapper">{article.description}</td>
+                    </tr>
+                </tbody>
+            </table>
         ))}
     </div>
     );

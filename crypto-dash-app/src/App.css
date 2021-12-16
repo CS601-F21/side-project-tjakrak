@@ -54,10 +54,29 @@ a:hover{
   color: grey;
 }
 
-.news-wrapper{
-  padding: 20px;
+.td-wrapper{
+  padding: 40px;
 }
 
 .tr-wrapper{
   padding: 20px;
+}
+
+.th-wrapper{
+  width: 400px;
+  text-align: left;
+}
+
+table{
+  table-layout: fixed;
+}
+
+.form-wrapper{
+  margin-top: 20px;
+  margin-bottom: 40px;
+  margin-left: 10px;
+}
+
+.input-box-wrapper{
+  margin-bottom: 30px;
 }
