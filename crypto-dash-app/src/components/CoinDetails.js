@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useGetCoinDetailsQuery} from '../services/coinGeckoApi';
 import { Chart } from 'chart.js';
-import HistoryChart from './HistoryChart';
 
 const CoinDetails= () => {
     // const chartRef = useRef();
@@ -18,7 +17,6 @@ const CoinDetails= () => {
         // }
         return (
             <div>
-                <HistoryChart />
             </div>
         );
     };

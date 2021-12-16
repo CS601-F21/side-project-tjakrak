@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'; //rafce
 import millify from 'millify';
 import { Link } from 'react-router-dom';
-import { Row, Col, Input, Avatar } from 'antd';
+import { Row, Col, Avatar } from 'antd';
 import { CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons';
 
 import { useGetCryptosQuery } from '../services/coinGeckoApi';
 
+// citation: //https://github.com/adrianhajdin/project_cryptoverse/blob/main/src/services/cryptoApi.js
 const Exchanges = () => {
     const { data: cryptoList, isFetching } = useGetCryptosQuery();
 
@@ -13,8 +14,8 @@ const Exchanges = () => {
 
     return (
         <div>
-            <Row className="crypto-card-container">
-                <Col span={24} className="coin-list-wrapper">
+            <Row>
+                <Col span={24}>
                     <Row>
                         <Col span={3}></Col>
                         <Col span={5}><strong>Coin</strong></Col>
@@ -27,7 +28,7 @@ const Exchanges = () => {
                     <Col span={24} key={coin.id} className="coin-list-wrapper">
                         <Link to={`/crypto/${coin.id}`}>
                             <Row className="each-coin-row">
-                                <Col span={3}><Avatar className="exchange-image" src={coin.image} /></Col>
+                                <Col span={3}><Avatar src={coin.image} /></Col>
                                 <Col span={5}><strong>{coin.name}</strong></Col>
                                 <Col span={5}>${millify(coin.total_volume)}</Col>
                                 <Col span={5}>${millify(coin.current_price)}</Col>

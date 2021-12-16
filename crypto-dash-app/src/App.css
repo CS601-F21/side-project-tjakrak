@@ -1,37 +1,13 @@
-:root{
-  --text-primary:#000;
-  --bgPrimary:#fff;
- --bgSecondary: #F9F9F9;
- --pink: #0071bd;
- --light-blue: #e6f7ff;
- --border: #d9d9d9;
-}
-
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
-
 a:hover{
-  color: var(--pink) !important;
+  color: var(--pink);
 }
-
-/* .app{
-  display: flex;
-  overflow: hidden;
-}
-
-.navbar{
-  flex: 0.2;
-  background-color: rgb(0, 21, 41);
-} */
 
 .main{
   flex: 0.8;
   width: 100%;
   
 }
+
 .routes{
   padding: 20px;
 }
@@ -41,21 +17,6 @@ a:hover{
   font-weight: 200;
   font-size: x-large;
 }
-
-/* .nav-container{
-  position: fixed;
-  left: 0;
-  margin: 10px;
-  height: 100vh;
-  margin: 0px;
-  background-color: rgb(0, 21, 41);
-} */
-
-/* li {
-  list-style-type: none;
-  display: inline;
-  float: left;
-} */
 
 .logo-container{
   background-color: #3f6e9b;
@@ -76,25 +37,27 @@ a:hover{
   background: white;
 }
 
-.menu-control-container{
-  display: none !important;
-  position: absolute !important;
-  right: 10px !important;
-  top: 25px !important;
-  font-size: 1.2rem !important;
-  background-color: var(--bgSecondary) !important;
-  border: none !important;
-}
-
-.loader{
-  height: 81vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .coin-list-wrapper{
-
   margin-top: 30px;
   padding-top: 10px;
+}
+
+.percentage-loss{
+  color: red;
+}
+
+.percentage-gain{
+  color: green;
+}
+
+.each-coin-row:hover{
+  color: grey;
+}
+
+.news-wrapper{
+  padding: 20px;
+}
+
+.tr-wrapper{
+  padding: 20px;
 }
