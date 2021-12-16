@@ -17,6 +17,12 @@ The main goal of this project is to keep up to date with cryptocurrencies prices
 ## Tech Stack
 1. React.js
 
+## Libraries
+1. antd - ant design provide front-end library for react.js user such as: icons, layouts, font, and many others
+2. redux - provides APIs that enable your components to interact with the Redux store, so you don't have to write that logic yourself.
+3. axios - react.js library to help the user getting the resources from the API
+4. React is used to encapsulate a library of components which embody our design language
+
 ## List of API
 1. coingecko.com
 2. newsapi.org
