@@ -1,3 +1,4 @@
+// citation: https://github.com/adrianhajdin/project_cryptoverse
 import React from 'react';
 import { Button, Menu, Cryptography} from 'antd';
 import { Link } from 'react-router-dom';
@@ -30,9 +31,6 @@ const Navbar = () => {
                     <Menu.Item icon={<AlertOutlined />} >
                         <Link to="/news">News</Link>
                     </Menu.Item>
-                    {/* <Menu.Item icon={<FundOutlined />} >
-                        <Link to="/cryptocurrencies">Cryptocurrencies</Link>
-                    </Menu.Item> */}
                 </Menu>
             </div>
         </div>

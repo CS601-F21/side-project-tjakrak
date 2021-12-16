@@ -1,3 +1,4 @@
+// citation: https://github.com/adrianhajdin/project_cryptoverse
 import React, { useContext, useState, useEffect } from 'react';
 import { MyDashboardContext } from './MyDashboard';
 import { Row, Col, Avatar } from 'antd';

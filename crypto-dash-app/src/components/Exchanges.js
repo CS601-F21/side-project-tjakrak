@@ -1,3 +1,4 @@
+// citation: //https://github.com/adrianhajdin/project_cryptoverse/blob/main/src/services/cryptoApi.js
 import React, {useState, useEffect} from 'react'; //rafce
 import millify from 'millify';
 import { Link } from 'react-router-dom';
@@ -6,7 +7,6 @@ import { CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons';
 
 import { useGetCryptosQuery } from '../services/coinGeckoApi';
 
-// citation: //https://github.com/adrianhajdin/project_cryptoverse/blob/main/src/services/cryptoApi.js
 const Exchanges = () => {
     const { data: cryptoList, isFetching } = useGetCryptosQuery();
 
