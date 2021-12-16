@@ -1,76 +1,45 @@
 import React, {useState, useEffect} from 'react'; //rafce
-import axios from 'axios';
 import millify from 'millify';
 import { Link } from 'react-router-dom';
-import { List, Card, Row, Col, Input, Avatar } from 'antd';
+import { Row, Col, Input, Avatar } from 'antd';
+import { CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons';
 
-import { useGetCryptosQuery } from '../services/cryptoApi';
-
-// function Exch() {
-//     const [coins, setCoins] = useState([])
-//     useEffect(() => {
-//         axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
-//         .then(res => {
-//             setCoins(res.data);
-//             console.log(res.data);
-//         });
-//     });
-
-// }
-
+import { useGetCryptosQuery } from '../services/coinGeckoApi';
 
 const Exchanges = () => {
     const { data: cryptoList, isFetching } = useGetCryptosQuery();
-    const [cryptos, setCryptos] = useState(cryptoList?.data?.name);
-
-    // console.log(cryptoList);
-
-    // console.log(cryptos);
 
     if(isFetching) return 'Loading...';
-
-
-
-    // const [coins, setCoins] = useState([])
-    // useEffect(() => {
-    //     axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
-    //     .then(res => {
-    //         setCoins(res.data);
-    //         console.log(res.data);
-    //     }).catch(error => console.log(error));
-    // }, []);
 
     return (
         <div>
             <Row className="crypto-card-container">
+                <Col span={24} className="coin-list-wrapper">
+                    <Row>
+                        <Col span={3}></Col>
+                        <Col span={5}><strong>Coin</strong></Col>
+                        <Col span={5}><strong>Total Volume</strong></Col>
+                        <Col span={5}><strong>Price</strong></Col>
+                        <Col span={5}><strong>%</strong></Col>
+                    </Row>
+                </Col>
                 {cryptoList.map((coin) => (
-                    <Col span={24} key={coin.id} className='coin-list-wrapper'>
-                        <Row>
-                            <Col span={3}><Avatar className="exchange-image" src={coin.image} /></Col>
-                            <Col span={6}><strong>{coin.name}</strong></Col>
-                            <Col span={6}>${millify(coin.total_volume)}</Col>
-                            <Col span={6}>{millify(coin.price_change_percentage_24h)}</Col>
-                        </Row>
+                    <Col span={24} key={coin.id} className="coin-list-wrapper">
+                        <Link to={`/crypto/${coin.id}`}>
+                            <Row className="each-coin-row">
+                                <Col span={3}><Avatar className="exchange-image" src={coin.image} /></Col>
+                                <Col span={5}><strong>{coin.name}</strong></Col>
+                                <Col span={5}>${millify(coin.total_volume)}</Col>
+                                <Col span={5}>${millify(coin.current_price)}</Col>
+                                <Col span={5}>
+                                    <span className={coin.price_change_percentage_24h < 0 ? "percentage-loss" : "percentage-gain"}>
+                                        {coin.price_change_percentage_24h < 0 ? <CaretDownOutlined /> : <CaretUpOutlined />}
+                                        {millify(coin.price_change_percentage_24h)} %
+                                    </span>
+                                </Col>
+                            </Row>
+                        </Link>
                     </Col>
-
-                    // <Col span={6}>{millify(coin.marketShare)}%</Col>
-
-
-
-                    // <Col className="crypto-card" key={coin.id}>
-                    //     <p>{coin.name}</p>
-                    //     <Link to={`/crypto/${coin.id}`}>
-
-                    //         <img className="coinlist-image" src={coin.image} alt="" />
-
-                    //         <Card
-                    //             title={`${coin.name}`}
-                    //             >  
-                    //             <img className="coinlist-image" src={coin.image} alt="" />
-                    //             <p>Price: {coin.current_price}</p> 
-                    //         </Card>
-                    //     </Link>
-                    // </Col>
                 ))}
             </Row>
         </div>

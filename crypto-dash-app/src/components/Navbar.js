@@ -9,7 +9,7 @@ import logo from '../images/cryptologo.png'; // import image from images
 // function Navbar() {}
 const Navbar = () => {
     return (
-        <div className='nav-container'>
+        <div>
             <div className='logo-container'>
                 <Link to="/">
                     <img src={logo} width="150" height="150" />
