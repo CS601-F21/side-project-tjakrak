@@ -69,7 +69,7 @@ const Homepage = () => {
                                 </Col> */}
                                 <Col span={4}><input type="number" onChange={calculateLossOrProfit}></input></Col>
                                 <Col span={3}><strong>{coin.current_price}</strong></Col>
-                                <Col span={3}><label>{value > 0 ? doMath(value, coin.current_price) : 0}</label></Col>
+                                <Col span={3}><label>{value > 0 ? doMath(value, coin.current_price) : 0} %</label></Col>
                                 <Col> 
                                     <DeleteOutlined className='trash-can'
                                         onClick={(e) => {
