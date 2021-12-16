@@ -2,18 +2,29 @@ import React, { useContext, useState, useEffect } from 'react';
 import { MyDashboardContext } from './MyDashboard';
 import { Row, Col, Avatar } from 'antd';
 import axios from "axios";
+import { DeleteOutlined } from '@ant-design/icons';
 
-
-import TextInput from './TextInput';
+import Calculate from './Calculate';
 import AddCoinTextInput from './AddCoinTextInput';
 
 const Homepage = () => {
     
     const [coins, setCoins] = useState([]);
     const [isLoading, setLoading] = useState(true);
-    const {dashboard} = useContext(MyDashboardContext);
+    const { dashboard, deleteCoin } = useContext(MyDashboardContext);
+
+
+    const [value, setValue] = useState("");
+    const calculateLossOrProfit = (e) => setValue(e.target.value);
+    // const result = doMath(value, currPrice);
 
     console.log(dashboard);
+    console.log(value);
+
+
+    function doMath(value, currPrice) {
+        return currPrice / value * 100;
+    }
 
 
     useEffect( async () => {
@@ -29,13 +40,6 @@ const Homepage = () => {
     }, []);
 
 
-    const handleClick = (coin) => {
-        console.log(coin);
-        dashboard(coin);
-        // setIsActive(false);
-    };
-
-
     //console.log(isLoading);
     if (isLoading) {
         return <div className="App">Loading...</div>;
@@ -48,10 +52,10 @@ const Homepage = () => {
                         <Row>
                             <Col span={3}></Col>
                             <Col span={4}><strong>Coin</strong></Col>
-                            <Col span={4}><strong>Buy Price</strong></Col>
                             <Col span={4}><strong>Current Price</strong></Col>
-                            <Col span={4}></Col>
-                            <Col span={4}><strong>%</strong></Col>
+                            <Col span={4}><strong>Buy Price</strong></Col>
+                            <Col span={3}></Col>
+                            <Col span={3}><strong>%</strong></Col>
                         </Row>
                     </Col>
                     {coins.map((coin) => (
@@ -59,15 +63,20 @@ const Homepage = () => {
                             <Row className="each-coin-row">
                                 <Col span={3}><Avatar src={coin.image} /></Col>
                                 <Col span={4}><strong>{coin.name}</strong></Col>
-                                <Col span={4}>
-                                    <input type="number">
-                                    </input>
-                                </Col>
                                 <Col span={4}><strong>{coin.current_price}</strong></Col>
-                                <Col span={4}>
-                                    <form>
-                                        <button type="submit">Calculate</button>
-                                    </form>
+                                {/* <Col span={8}>
+                                    <Calculate />
+                                </Col> */}
+                                <Col span={4}><input type="number" onChange={calculateLossOrProfit}></input></Col>
+                                <Col span={3}><strong>{coin.current_price}</strong></Col>
+                                <Col span={3}><label>{value > 0 ? doMath(value, coin.current_price) : 0}</label></Col>
+                                <Col> 
+                                    <DeleteOutlined className='trash-can'
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            deleteCoin(coin.id);
+                                        }}
+                                    />
                                 </Col>
                             </Row>
                         </Col>

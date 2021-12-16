@@ -80,3 +80,20 @@ table{
 .input-box-wrapper{
   margin-bottom: 30px;
 }
+
+.calculate-box-wrapper{
+  float: left;
+}
+
+.buy-price-wrapper-left{
+  margin-right: 40px;
+}
+
+.buy-price-wrapper-right{
+  margin-left: 40px;
+  text-align: right; 
+}
+
+.trash-can{
+  margin-left: 100px;
+}

@@ -4,6 +4,7 @@ import { Layout, Typography, Space } from 'antd';
 import { Navbar, Exchanges, Homepage, News, CoinDetails } from './components';
 import { MyDashboardContextProvider } from './components/MyDashboard';
 import './App.css';
+require('dotenv').config();
 
 const App = () => {
   return (
